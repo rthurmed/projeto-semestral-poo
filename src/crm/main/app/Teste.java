@@ -3,8 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package crm;
+package crm.main.app;
 
+import crm.main.classes.Gerente;
+import crm.main.classes.Ligacao;
+import crm.main.classes.Setor;
+import crm.main.classes.Email;
+import crm.main.classes.Servico;
+import crm.main.classes.Empresa;
+import crm.main.classes.Vendedor;
+import crm.main.classes.Reuniao;
+import crm.main.classes.Contato;
+import crm.main.classes.ClienteAtual;
 import java.util.Date;
 
 /**
