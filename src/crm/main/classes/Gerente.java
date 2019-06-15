@@ -7,7 +7,7 @@ package crm.main.classes;
 
 /**
  *
- * @author Pichau
+ * @author Arthur
  */
 public class Gerente extends Vendedor{
 

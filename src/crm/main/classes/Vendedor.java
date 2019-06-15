@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Pichau
+ * @author Arthur
  */
 public class Vendedor {
 

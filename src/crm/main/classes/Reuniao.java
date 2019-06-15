@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author Pichau
+ * @author Arthur
  */
 public class Reuniao extends Interacao{
     

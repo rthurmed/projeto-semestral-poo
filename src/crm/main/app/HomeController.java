@@ -14,7 +14,7 @@ import javafx.scene.control.Label;
 
 /**
  *
- * @author developer
+ * @author Arthur
  */
 public class HomeController implements Initializable {
     
