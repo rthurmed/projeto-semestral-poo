@@ -3,7 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/arthur/NetBeansProjects/projeto-semestral-poo/src/crm/app/Crm.java</file>
+            <file>file:/home/arthur/NetBeansProjects/projeto-semestral-poo/src/crm/main/classes/Vendedor.java</file>
+            <file>file:/home/arthur/NetBeansProjects/projeto-semestral-poo/src/crm/dao/AbstractDAO.java</file>
+            <file>file:/home/arthur/NetBeansProjects/projeto-semestral-poo/src/crm/main/app/Crm.java</file>
+            <file>file:/home/arthur/NetBeansProjects/projeto-semestral-poo/src/crm/db/Conexao.java</file>
         </group>
     </open-files>
 </project-private>
