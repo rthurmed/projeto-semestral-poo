@@ -11,6 +11,7 @@ package crm.main.classes;
  */
 public class Setor {
     
+    private int id;
     private String codigo;
     private String descricao;
 
@@ -20,6 +21,14 @@ public class Setor {
     public Setor(String codigo, String descricao) {
         this.codigo = codigo;
         this.descricao = descricao;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCodigo() {

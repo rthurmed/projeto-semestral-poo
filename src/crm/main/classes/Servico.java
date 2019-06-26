@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public class Servico {
     
+    private int id;
     private String descricao;
     private Date dataFim;
     private Date dataInicio;
@@ -26,6 +27,14 @@ public class Servico {
         this.dataInicio = dataInicio;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getDescricao() {
         return descricao;
     }

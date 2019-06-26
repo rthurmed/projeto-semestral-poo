@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class Vendedor {
 
+    private int id;
     private String nome;
     private String email;
     private ArrayList<Interacao> interacoes = new ArrayList<>();
@@ -23,6 +24,14 @@ public class Vendedor {
     public Vendedor(String nome, String email) {
         this.nome = nome;
         this.email = email;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {

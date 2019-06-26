@@ -13,6 +13,7 @@ import java.util.Date;
  */
 public abstract class Interacao {
     
+    private int id;
     private Date dia;
     private Date dataRetorno;
     private boolean efetiva;
@@ -26,6 +27,14 @@ public abstract class Interacao {
         this.dataRetorno = dataRetorno;
         this.efetiva = efetiva;
         this.contato = contato;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Date getDia() {

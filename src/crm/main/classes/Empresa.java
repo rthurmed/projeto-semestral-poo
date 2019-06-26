@@ -11,6 +11,7 @@ package crm.main.classes;
  */
 public class Empresa {
     
+    private int id;
     private String razaoSocial;
     private String nomeFantasia;
     private String cidade;
@@ -26,6 +27,14 @@ public class Empresa {
         this.cidade = cidade;
         this.site = site;
         this.setor = setor;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getRazaoSocial() {

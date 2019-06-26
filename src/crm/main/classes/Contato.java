@@ -11,6 +11,7 @@ package crm.main.classes;
  */
 public class Contato {
     
+    private int id;
     private String nome;
     private String cargo;
     private Empresa empresa;
@@ -22,6 +23,14 @@ public class Contato {
         this.nome = nome;
         this.cargo = cargo;
         this.empresa = empresa;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
