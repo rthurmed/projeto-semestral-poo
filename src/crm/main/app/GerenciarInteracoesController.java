@@ -10,34 +10,38 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TableView;
 
 /**
+ * FXML Controller class
  *
- * @author Arthur
+ * @author arthur
  */
-public class HomeController implements Initializable {
-    
+public class GerenciarInteracoesController implements Initializable {
+
     @FXML
-    private Label label;
+    private TableView<?> ligacoesTable;
     @FXML
-    private Button button;
+    private TableView<?> emailsTable;
     @FXML
-    private TextField emailField;
+    private TableView<?> reunioesTable;
     @FXML
-    private PasswordField passField;
-    
+    private TableView<?> contatosTable;
+
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
 
     @FXML
-    private void logar(ActionEvent event) {
-        Crm.trocaTela("GerenciarInteracoes.fxml");
+    private void gotoEditarInteracao(ActionEvent event) {
+    }
+
+    @FXML
+    private void gotoEditarContato(ActionEvent event) {
     }
     
 }

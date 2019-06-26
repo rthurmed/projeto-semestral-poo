@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="587.0" prefWidth="928.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="crm.main.app.GerenciarInteracoesController">
+   <children>
+      <TabPane layoutX="14.0" layoutY="14.0" prefHeight="521.0" prefWidth="455.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Ligacoes">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="ligacoesTable" prefHeight="487.0" prefWidth="455.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Data" />
+                            <TableColumn prefWidth="75.0" text="Contato" />
+                              <TableColumn prefWidth="75.0" text="Numero" />
+                              <TableColumn prefWidth="75.0" text="Retorno" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="E-mails">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="emailsTable" prefHeight="487.0" prefWidth="455.0">
+                          <columns>
+                              <TableColumn prefWidth="75.0" text="Data" />
+                              <TableColumn prefWidth="75.0" text="Contato" />
+                              <TableColumn prefWidth="75.0" text="Numero" />
+                              <TableColumn prefWidth="75.0" text="Retorno" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Reunioes">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="103.0" prefWidth="455.0">
+                     <children>
+                        <TableView fx:id="reunioesTable" prefHeight="487.0" prefWidth="455.0">
+                          <columns>
+                              <TableColumn prefWidth="75.0" text="Data" />
+                              <TableColumn prefWidth="75.0" text="Contato" />
+                              <TableColumn prefWidth="75.0" text="Numero" />
+                              <TableColumn prefWidth="75.0" text="Retorno" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Button layoutX="14.0" layoutY="547.0" mnemonicParsing="false" onAction="#gotoEditarInteracao" text="Editar interacao" />
+      <TableView fx:id="contatosTable" layoutX="488.0" layoutY="48.0" prefHeight="487.0" prefWidth="433.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Nome" />
+          <TableColumn prefWidth="75.0" text="Cargo" />
+            <TableColumn prefWidth="75.0" text="Empresa" />
+            <TableColumn prefWidth="75.0" text="Setor" />
+        </columns>
+      </TableView>
+      <Label layoutX="488.0" layoutY="19.0" text="Nova interaçao:" />
+      <Button layoutX="810.0" layoutY="14.0" mnemonicParsing="false" onAction="#gotoEditarContato" text="Editar contato" />
+      <Button layoutX="675.0" layoutY="547.0" mnemonicParsing="false" text="E-mail" />
+      <Button layoutX="592.0" layoutY="547.0" mnemonicParsing="false" text="Ligaçao" />
+      <Button layoutX="747.0" layoutY="547.0" mnemonicParsing="false" text="Reuniao" />
+   </children>
+</AnchorPane>
