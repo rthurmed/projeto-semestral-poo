@@ -10,6 +10,10 @@ CREATE TABLE setor (
     descricao VARCHAR(255)
 )
 
+INSERT INTO setor(id, codigo, descricao) VALUES (seq_setor.nextval, 'ALI', 'Alimentação')
+INSERT INTO setor(id, codigo, descricao) VALUES (seq_setor.nextval, 'BAN', 'Bancos')
+INSERT INTO setor(id, codigo, descricao) VALUES (seq_setor.nextval, 'CAS', 'Casa e Decoração')
+
 -- Vendedor
 -- * nome
 -- * email
@@ -24,19 +28,8 @@ CREATE TABLE vendedor (
     gerente NUMBER
 )
 
--- Serviço
--- * descricao
--- * dataFim
--- * dataInicio
-
-CREATE SEQUENCE seq_servico
-
-CREATE TABLE servico (
-    id NUMBER CONSTRAINT pkservico PRIMARY KEY, 
-    descricao VARCHAR(255),
-    dataFim DATE,
-    dataInicio DATE
-)
+INSERT INTO vendedor(id, nome, email, gerente) VALUES (seq_vendedor.nextval, 'Arthur', 'arthur@crm.com', 0)
+INSERT INTO vendedor(id, nome, email, gerente) VALUES (seq_vendedor.nextval, 'Gerente', 'gerente@crm.com', 1)
 
 -- EMPRESA
 -- * razaoSocial
@@ -58,18 +51,22 @@ CREATE TABLE empresa (
 
 ALTER TABLE empresa ADD CONSTRAINT fkempresa_setor FOREIGN KEY(setor_id) REFERENCES setor(id)
 
--- SERVICO_EMPRESA
--- * empresa_id
--- * servico_id
+-- Serviço
+-- * descricao
+-- * dataFim
+-- * dataInicio
 
-CREATE TABLE servico_empresa (
-    empresa_id NUMBER,
-    servico_id NUMBER,
-    CONSTRAINT pkservico_empresa PRIMARY KEY(empresa_id, servico_id)
+CREATE SEQUENCE seq_servico
+
+CREATE TABLE servico (
+    id NUMBER CONSTRAINT pkservico PRIMARY KEY, 
+    descricao VARCHAR(255),
+    dataFim DATE,
+    dataInicio DATE,
+    empresa_id NUMBER
 )
 
-ALTER TABLE servico_empresa ADD CONSTRAINT fkseremp_empresa FOREIGN KEY(empresa_id) REFERENCES empresa(id)
-ALTER TABLE servico_empresa ADD CONSTRAINT fkseremp_servico FOREIGN KEY(servico_id) REFERENCES servico(id)
+ALTER TABLE servico ADD CONSTRAINT fkservico_empresa FOREIGN KEY(empresa_id) REFERENCES empresa(id)
 
 -- CONTATO
 -- * nome
