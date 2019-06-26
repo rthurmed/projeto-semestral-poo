@@ -43,5 +43,10 @@ public class GerenciarInteracoesController implements Initializable {
     @FXML
     private void gotoEditarContato(ActionEvent event) {
     }
+
+    @FXML
+    private void gotoAdicionarEmpresa(ActionEvent event) {
+        Crm.trocaTela("CadastrarEmpresa.fxml");
+    }
     
 }

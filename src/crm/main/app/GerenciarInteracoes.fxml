@@ -72,9 +72,10 @@
         </columns>
       </TableView>
       <Label layoutX="488.0" layoutY="19.0" text="Nova interaçao:" />
-      <Button layoutX="810.0" layoutY="14.0" mnemonicParsing="false" onAction="#gotoEditarContato" text="Editar contato" />
+      <Button layoutX="655.0" layoutY="14.0" mnemonicParsing="false" onAction="#gotoEditarContato" text="Editar contato" />
       <Button layoutX="675.0" layoutY="547.0" mnemonicParsing="false" text="E-mail" />
       <Button layoutX="592.0" layoutY="547.0" mnemonicParsing="false" text="Ligaçao" />
       <Button layoutX="747.0" layoutY="547.0" mnemonicParsing="false" text="Reuniao" />
+      <Button layoutX="773.0" layoutY="14.0" mnemonicParsing="false" onAction="#gotoAdicionarEmpresa" text="Adicionar Empresa" />
    </children>
 </AnchorPane>
