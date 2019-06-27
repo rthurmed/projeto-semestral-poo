@@ -13,11 +13,43 @@ import java.util.ArrayList;
  * @param <T>
  */
 public abstract class AbstractDAO<T> {
-    public abstract T getOne();
+
+    /**
+     * Obtem um item especifico do tipo T
+     * 
+     * @param id
+     * @return T objeto
+     */
+    public abstract T getOne(int id);
     
-    public abstract void save(T objeto);
+    /**
+     * Salva o objeto no banco
+     * 
+     * @param objeto
+     * @return resultado
+     */
+    public abstract boolean save(T objeto);
     
-    public abstract int update(T objeto);
+    /**
+     * Atualiza os valores do objeto no banco
+     * 
+     * @param objeto
+     * @return resultado
+     */
+    public abstract boolean update(T objeto);
     
+    /**
+     * Deleta o objeto do banco
+     * 
+     * @param objeto
+     * @return resultado
+     */
+    public abstract boolean delete(T objeto);
+    
+    /**
+     * Obtem todos valores do banco
+     * 
+     * @return listaDeT
+     */
     public abstract ArrayList<T> getAll();
 }
