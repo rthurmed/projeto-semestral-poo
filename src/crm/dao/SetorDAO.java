@@ -61,7 +61,7 @@ public class SetorDAO extends AbstractDAO<Setor>{
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, objeto.getCodigo());
-            ps.setString(1, objeto.getDescricao());
+            ps.setString(2, objeto.getDescricao());
             ps.execute();
             
             System.out.println("Setor " + objeto.getCodigo() + " cadastrado!");
