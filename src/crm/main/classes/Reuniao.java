@@ -15,18 +15,37 @@ public class Reuniao extends Interacao{
     
     private int horario;
 
+    /**
+     *
+     */
     public Reuniao() {
     }
 
+    /**
+     *
+     * @param horario
+     * @param dia
+     * @param dataRetorno
+     * @param efetiva
+     * @param contato
+     */
     public Reuniao(int horario, Date dia, Date dataRetorno, boolean efetiva, Contato contato) {
         super(dia, dataRetorno, efetiva, contato);
         this.horario = horario;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getHorario() {
         return horario;
     }
 
+    /**
+     *
+     * @param horario
+     */
     public void setHorario(int horario) {
         this.horario = horario;
     }

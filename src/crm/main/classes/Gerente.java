@@ -11,13 +11,25 @@ package crm.main.classes;
  */
 public class Gerente extends Vendedor{
 
+    /**
+     *
+     */
     public Gerente() {
     }
 
+    /**
+     *
+     * @param nome
+     * @param email
+     */
     public Gerente(String nome, String email) {
         super(nome, email);
     }
     
+    /**
+     *
+     * @return
+     */
     public String gerarRelatorio() {
         return "relatorio";
     }

@@ -18,42 +18,82 @@ public class Vendedor {
     private String email;
     private ArrayList<Interacao> interacoes = new ArrayList<>();
 
+    /**
+     *
+     */
     public Vendedor() {
     }
 
+    /**
+     *
+     * @param nome
+     * @param email
+     */
     public Vendedor(String nome, String email) {
         this.nome = nome;
         this.email = email;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     *
+     * @param nome
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     *
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Interacao> getInteracoes() {
         return interacoes;
     }
 
+    /**
+     *
+     * @param interacoes
+     */
     public void setInteracoes(ArrayList<Interacao> interacoes) {
         this.interacoes = interacoes;
     }

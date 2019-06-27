@@ -15,18 +15,37 @@ public class Email extends Interacao{
     
     private String destinatario;
 
+    /**
+     *
+     */
     public Email() {
     }
 
+    /**
+     *
+     * @param destinatario
+     * @param dia
+     * @param dataRetorno
+     * @param efetiva
+     * @param contato
+     */
     public Email(String destinatario, Date dia, Date dataRetorno, boolean efetiva, Contato contato) {
         super(dia, dataRetorno, efetiva, contato);
         this.destinatario = destinatario;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDestinatario() {
         return destinatario;
     }
 
+    /**
+     *
+     * @param destinatario
+     */
     public void setDestinatario(String destinatario) {
         this.destinatario = destinatario;
     }

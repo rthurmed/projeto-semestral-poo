@@ -16,43 +16,84 @@ public class Contato {
     private String cargo;
     private Empresa empresa;
 
+    /**
+     *
+     */
     public Contato() {
     }
 
+    /**
+     *
+     * @param nome
+     * @param cargo
+     * @param empresa
+     */
     public Contato(String nome, String cargo, Empresa empresa) {
         this.nome = nome;
         this.cargo = cargo;
         this.empresa = empresa;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNome() {
         return nome;
     }
 
+    /**
+     *
+     * @param nome
+     */
     public void setNome(String nome) {
         this.nome = nome;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getCargo() {
         return cargo;
     }
 
+    /**
+     *
+     * @param cargo
+     */
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
 
+    /**
+     *
+     * @return
+     */
     public Empresa getEmpresa() {
         return empresa;
     }
 
+    /**
+     *
+     * @param empresa
+     */
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
     }

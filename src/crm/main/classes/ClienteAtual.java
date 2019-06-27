@@ -15,17 +15,36 @@ public class ClienteAtual extends Empresa{
     
     private ArrayList<Servico> servicos = new ArrayList<>();
 
+    /**
+     * 
+     */
     public ClienteAtual() {
     }
 
+    /**
+     *
+     * @param razaoSocial
+     * @param nomeFantasia
+     * @param cidade
+     * @param site
+     * @param setor
+     */
     public ClienteAtual(String razaoSocial, String nomeFantasia, String cidade, String site, Setor setor) {
         super(razaoSocial, nomeFantasia, cidade, site, setor);
     }
 
+    /**
+     *
+     * @return
+     */
     public ArrayList<Servico> getServicos() {
         return servicos;
     }
 
+    /**
+     *
+     * @param servicos
+     */
     public void setServicos(ArrayList<Servico> servicos) {
         this.servicos = servicos;
     }

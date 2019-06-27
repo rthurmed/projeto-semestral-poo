@@ -18,43 +18,84 @@ public class Servico {
     private Date dataFim;
     private Date dataInicio;
 
+    /**
+     *
+     */
     public Servico() {
     }
 
+    /**
+     *
+     * @param descricao
+     * @param dataFim
+     * @param dataInicio
+     */
     public Servico(String descricao, Date dataFim, Date dataInicio) {
         this.descricao = descricao;
         this.dataFim = dataFim;
         this.dataInicio = dataInicio;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(int id) {
         this.id = id;
     }
     
+    /**
+     *
+     * @return
+     */
     public String getDescricao() {
         return descricao;
     }
 
+    /**
+     *
+     * @param descricao
+     */
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getDataFim() {
         return dataFim;
     }
 
+    /**
+     *
+     * @param dataFim
+     */
     public void setDataFim(Date dataFim) {
         this.dataFim = dataFim;
     }
 
+    /**
+     *
+     * @return
+     */
     public Date getDataInicio() {
         return dataInicio;
     }
 
+    /**
+     *
+     * @param dataInicio
+     */
     public void setDataInicio(Date dataInicio) {
         this.dataInicio = dataInicio;
     }
