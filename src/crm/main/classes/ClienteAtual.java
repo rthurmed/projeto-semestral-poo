@@ -48,6 +48,14 @@ public class ClienteAtual extends Empresa{
     public void setServicos(ArrayList<Servico> servicos) {
         this.servicos = servicos;
     }
+    
+    /**
+     * 
+     * @param servico 
+     */
+    public void addServico(Servico servico) {
+        this.servicos.add(servico);
+    }
 
     @Override
     public String toString() {

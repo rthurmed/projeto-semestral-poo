@@ -149,8 +149,8 @@ public class ContatoDAO extends AbstractDAO<Contato>{
             while (rs.next()) {
                 Contato contato = new Contato();
                 contato.setId(rs.getInt("id"));
-                contato.setNome(rs.getString("codigo"));
-                contato.setCargo(rs.getString("descricao"));
+                contato.setNome(rs.getString("nome"));
+                contato.setCargo(rs.getString("cargo"));
                 contato.setEmpresa(new EmpresaDAO().getOne(rs.getInt("empresa_id")));
                 contatos.add(contato);
             }

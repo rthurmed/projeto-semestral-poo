@@ -5,6 +5,8 @@
  */
 package crm.main.classes;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Arthur
@@ -17,6 +19,7 @@ public class Empresa {
     private String cidade;
     private String site;
     private Setor setor;
+    private ArrayList<Contato> contatos = new ArrayList();
 
     /**
      *
@@ -134,6 +137,30 @@ public class Empresa {
      */
     public void setSetor(Setor setor) {
         this.setor = setor;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public ArrayList<Contato> getContatos() {
+        return contatos;
+    }
+
+    /**
+     *
+     * @param contatos
+     */
+    public void setContatos(ArrayList<Contato> contatos) {
+        this.contatos = contatos;
+    }
+    
+    /**
+     *
+     * @param contato
+     */
+    public void addContato(Contato contato) {
+        this.contatos.add(contato);
     }
 
     @Override

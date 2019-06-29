@@ -6,6 +6,7 @@
 package crm.dao;
 
 import crm.db.Conexao;
+import crm.main.classes.Contato;
 import crm.main.classes.Empresa;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -168,6 +169,39 @@ public class EmpresaDAO extends AbstractDAO<Empresa>{
         }
         
         return empresas;
+    }
+    
+    public ArrayList<Contato> getContatosFrom(Empresa objeto) {
+        ArrayList<Contato> contatos = new ArrayList();
+        
+        Conexao c = new Conexao();
+        Connection con = c.getConexao();
+        
+        String sql = "SELECT id, nome, cargo FROM contato WHERE empresa_id = ?";
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setInt(1, objeto.getId());
+            
+            ResultSet rs = ps.executeQuery(sql);
+            
+            while (rs.next()) {
+                Contato contato = new Contato();
+                contato.setId(rs.getInt("id"));
+                contato.setNome(rs.getString("codigo"));
+                contato.setCargo(rs.getString("descricao"));
+                contato.setEmpresa(new EmpresaDAO().getOne(rs.getInt("empresa_id")));
+                contatos.add(contato);
+            }
+            
+            objeto.setContatos(contatos);
+        } catch (SQLException e) {
+            System.out.println(e);
+            return null;
+        }
+        
+        return contatos;
     }
     
 }
