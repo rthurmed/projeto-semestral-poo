@@ -6,7 +6,7 @@
 package crm.dao;
 
 import crm.db.Conexao;
-import crm.main.classes.Empresa;
+import crm.main.classes.Contato;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,19 +15,20 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- *
+ * DAO para a classe Contato
+ *  
  * @author arthur
  */
-public class EmpresaDAO extends AbstractDAO<Empresa>{
+public class ContatoDAO extends AbstractDAO<Contato>{
 
     @Override
-    public Empresa getOne(int id) {
-        Empresa empresa = new Empresa();
+    public Contato getOne(int id) {
+        Contato contato = new Contato();
         
         Conexao c = new Conexao();
         Connection con = c.getConexao();
         
-        String sql = "SELECT razaoSocial, nomeFantasia, cidade, site, setor_id FROM empresa WHERE id = ?";
+        String sql = "SELECT nome, cargo, empresa_id FROM contato WHERE id = ?";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -36,39 +37,36 @@ public class EmpresaDAO extends AbstractDAO<Empresa>{
             
             ResultSet rs = ps.executeQuery();
             
-            if (rs.next()) {
-                empresa.setId(id);
-                empresa.setRazaoSocial(rs.getString("razaoSocial"));
-                empresa.setNomeFantasia(rs.getString("nomeFantasia"));
-                empresa.setCidade(rs.getString("cidade"));
-                empresa.setSite(rs.getString("site"));
-                empresa.setSetor(new SetorDAO().getOne(rs.getInt("setor_id")));
+            if(rs.next()) {
+                contato.setId(id);
+                contato.setNome(rs.getString("nome"));
+                contato.setCargo(rs.getString("cargo"));
+                contato.setEmpresa(new EmpresaDAO().getOne(rs.getInt("empresa_id")));
             }
+                
         } catch (SQLException e) {
             System.out.println(e);
             return null;
         }
         
-        return empresa;
+        return contato;
     }
 
     @Override
-    public boolean save(Empresa objeto) {
+    public boolean save(Contato objeto) {
         Conexao c = new Conexao();
         Connection con = c.getConexao();
         
-        String sql = "INSERT INTO empresa(id, razaoSocial, nomeFantasia, cidade, site, setor_id)"
-                + "VALUES (seq_empresa.nextval, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO contato(id, nome, cargo, empresa_id)"
+                + "VALUES (seq_contato.nextval, ?, ?, ?)";
         
         String colunasGeradas[] = {"id"};
         
         try {
             PreparedStatement ps = con.prepareStatement(sql, colunasGeradas);
-            ps.setString(1, objeto.getRazaoSocial());
-            ps.setString(2, objeto.getNomeFantasia());
-            ps.setString(3, objeto.getCidade());
-            ps.setString(4, objeto.getSite());
-            ps.setInt(5, objeto.getSetor().getId());
+            ps.setString(1, objeto.getNome());
+            ps.setString(1, objeto.getCargo());
+            ps.setInt(3, objeto.getEmpresa().getId());
             ps.executeUpdate();
             
             ResultSet rs = ps.getGeneratedKeys();
@@ -79,7 +77,7 @@ public class EmpresaDAO extends AbstractDAO<Empresa>{
             }
             objeto.setId(id);
             
-            System.out.println("Empresa " + objeto.getRazaoSocial() + " cadastrada!");
+            System.out.println("Contato " + objeto.getNome() + " cadastrado!");
         } catch (SQLException e) {
             System.out.println(e);
             return false;
@@ -89,25 +87,22 @@ public class EmpresaDAO extends AbstractDAO<Empresa>{
     }
 
     @Override
-    public boolean update(Empresa objeto) {
+    public boolean update(Contato objeto) {
         Conexao c = new Conexao();
         Connection con = c.getConexao();
         
-        String sql = "UPDATE empresa SET razaoSocial = ?, nomeFantasia = ?, cidade = ?, site = ?, setor_id = ? "
-                + "WHERE id = ?";
+        String sql = "UPDATE contato SET nome = ?, cargo = ?, empresa_id = ? WHERE id = ?";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             
-            ps.setString(1, objeto.getRazaoSocial());
-            ps.setString(2, objeto.getNomeFantasia());
-            ps.setString(3, objeto.getCidade());
-            ps.setString(4, objeto.getSite());
-            ps.setInt(5, objeto.getSetor().getId());
-            ps.setInt(6, objeto.getId());
+            ps.setString(1, objeto.getNome());
+            ps.setString(2, objeto.getCargo());
+            ps.setInt(3, objeto.getEmpresa().getId());
+            ps.setInt(4, objeto.getId());
             ps.executeUpdate();
             
-            System.out.println("Empresa " + objeto.getRazaoSocial() + " atualizada!");
+            System.out.println("Contato " + objeto.getNome() + " atualizado!");
         } catch (SQLException e) {
             System.out.println(e);
             return false;
@@ -115,13 +110,13 @@ public class EmpresaDAO extends AbstractDAO<Empresa>{
         
         return true;
     }
-
+    
     @Override
-    public boolean delete(Empresa objeto) {
+    public boolean delete(Contato objeto) {
         Conexao c = new Conexao();
         Connection con = c.getConexao();
         
-        String sql = "DELETE FROM empresa WHERE id = ?";
+        String sql = "DELETE FROM contato WHERE id = ?";
         
         try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -129,7 +124,7 @@ public class EmpresaDAO extends AbstractDAO<Empresa>{
             ps.setInt(1, objeto.getId());
             ps.execute();
             
-            System.out.println("Empresa " + objeto.getRazaoSocial() + " deletada!");
+            System.out.println("Contato " + objeto.getNome() + " deletado!");
         } catch (SQLException e) {
             System.out.println(e);
             return false;
@@ -139,27 +134,25 @@ public class EmpresaDAO extends AbstractDAO<Empresa>{
     }
 
     @Override
-    public ArrayList<Empresa> getAll() {
-        ArrayList<Empresa> empresas = new ArrayList();
+    public ArrayList<Contato> getAll() {
+        ArrayList<Contato> contatos = new ArrayList();
         
         Conexao c = new Conexao();
         Connection con = c.getConexao();
         
-        String sql = "SELECT id, razaoSocial, nomeFantasia, cidade, site, setor_id FROM setor";
+        String sql = "SELECT id, nome, cargo, empresa_id FROM contato";
         
         try {
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             
             while (rs.next()) {
-                Empresa empresa = new Empresa();
-                empresa.setId(rs.getInt("id"));
-                empresa.setRazaoSocial(rs.getString("razaoSocial"));
-                empresa.setNomeFantasia(rs.getString("nomeFantasia"));
-                empresa.setCidade(rs.getString("cidade"));
-                empresa.setSite(rs.getString("site"));
-                empresa.setSetor(new SetorDAO().getOne(rs.getInt("setor_id")));
-                empresas.add(empresa);
+                Contato contato = new Contato();
+                contato.setId(rs.getInt("id"));
+                contato.setNome(rs.getString("codigo"));
+                contato.setCargo(rs.getString("descricao"));
+                contato.setEmpresa(new EmpresaDAO().getOne(rs.getInt("empresa_id")));
+                contatos.add(contato);
             }
                 
         } catch (SQLException e) {
@@ -167,7 +160,7 @@ public class EmpresaDAO extends AbstractDAO<Empresa>{
             return null;
         }
         
-        return empresas;
+        return contatos;
     }
     
 }

@@ -58,11 +58,21 @@ public class SetorDAO extends AbstractDAO<Setor>{
         String sql = "INSERT INTO setor(id, codigo, descricao)"
                 + "VALUES (seq_setor.nextval, ?, ?)";
         
+        String colunasGeradas[] = {"id"};
+        
         try {
-            PreparedStatement ps = con.prepareStatement(sql);
+            PreparedStatement ps = con.prepareStatement(sql, colunasGeradas);
             ps.setString(1, objeto.getCodigo());
             ps.setString(2, objeto.getDescricao());
-            ps.execute();
+            ps.executeUpdate();
+            
+            ResultSet rs = ps.getGeneratedKeys();
+            
+            int id = 0;
+            if (rs.next()) {
+                id = rs.getInt("id");
+            }
+            objeto.setId(id);
             
             System.out.println("Setor " + objeto.getCodigo() + " cadastrado!");
         } catch (SQLException e) {
