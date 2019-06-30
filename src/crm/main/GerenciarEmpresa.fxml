@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1145.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="crm.main.GerenciarEmpresaController">
+   <children>
+      <Label layoutX="588.0" layoutY="50.0" text="Razao Social" />
+      <Label layoutX="773.0" layoutY="50.0" text="Nome Fantasia" />
+      <Label layoutX="958.0" layoutY="50.0" text="Cidade" />
+      <TextField fx:id="razaoSocialField" layoutX="588.0" layoutY="72.0" />
+      <TextField fx:id="nomeFantasiaField" layoutX="773.0" layoutY="72.0" />
+      <TextField fx:id="cidadeField" layoutX="958.0" layoutY="72.0" />
+      <Text layoutX="588.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Site" />
+      <TextField fx:id="siteField" layoutX="588.0" layoutY="135.0" prefHeight="26.0" prefWidth="356.0" />
+      <ComboBox fx:id="setorCombo" layoutX="956.0" layoutY="135.0" prefHeight="26.0" prefWidth="171.0" />
+      <Label layoutX="956.0" layoutY="112.0" text="Setor" />
+      <Label layoutX="588.0" layoutY="172.0" text="Contatos:" />
+      <Label layoutX="588.0" layoutY="197.0" text="Nome" />
+      <Label layoutX="773.0" layoutY="197.0" text="Cargo" />
+      <TextField fx:id="contatoNomeField" layoutX="586.0" layoutY="223.0" />
+      <TextField fx:id="contatoCargoField" layoutX="773.0" layoutY="223.0" />
+      <ToolBar layoutX="587.0" layoutY="257.0" prefHeight="38.0" prefWidth="543.0">
+         <items>
+            <Button mnemonicParsing="false" onAction="#carregarContato" text="Carregar" />
+            <Button mnemonicParsing="false" onAction="#excluirContato" text="Excluir" />
+            <Button mnemonicParsing="false" onAction="#atualizarContato" text="Atualizar" />
+            <Button fx:id="buttonAddContato" mnemonicParsing="false" onAction="#addContato" text="Adicionar" />
+         </items>
+      </ToolBar>
+      <TableView fx:id="contatosTable" layoutX="588.0" layoutY="302.0" prefHeight="297.0" prefWidth="543.0">
+        <columns>
+          <TableColumn fx:id="contatosTableNome" editable="false" prefWidth="272.0" text="Nome" />
+          <TableColumn fx:id="contatosTableCargo" editable="false" minWidth="0.0" prefWidth="270.0" text=" Cargo" />
+        </columns>
+      </TableView>
+      <Button fx:id="buttonCadastrar" layoutX="1011.0" layoutY="609.0" mnemonicParsing="false" onAction="#cadastrarNovaEmpresa" text="Cadastrar novo" />
+      <Button fx:id="buttonAtualizar" layoutX="888.0" layoutY="609.0" mnemonicParsing="false" onAction="#atualizarEmpresa" text="Atualizar atual" />
+      <Label fx:id="status" layoutX="423.0" layoutY="614.0" text="Selecione uma empresa ou preencha o formulario" textAlignment="CENTER" />
+      <TableView fx:id="empresasTable" layoutX="14.0" layoutY="48.0" prefHeight="551.0" prefWidth="561.0">
+        <columns>
+          <TableColumn fx:id="empresasTableNome" editable="false" prefWidth="153.0" text="Nome Fantasia" />
+            <TableColumn fx:id="empresasTableCidade" editable="false" prefWidth="137.0" text="Cidade" />
+            <TableColumn fx:id="empresasTableSite" editable="false" prefWidth="201.0" text="Site" />
+        </columns>
+      </TableView>
+      <ToolBar prefHeight="40.0" prefWidth="1145.0">
+        <items>
+          <Button mnemonicParsing="false" onAction="#gotoGerenciarInteracoes" text="Voltar" />
+            <Button mnemonicParsing="false" onAction="#excluirEmpresa" text="Excluir" />
+            <Button mnemonicParsing="false" onAction="#carregarEmpresa" text="Carregar">
+               <tooltip>
+                  <Tooltip text="Carrega para o formulário para editar" />
+               </tooltip>
+            </Button>
+        </items>
+      </ToolBar>
+      <Button layoutX="14.0" layoutY="609.0" mnemonicParsing="false" text="Gerenciar setores" />
+   </children>
+</AnchorPane>

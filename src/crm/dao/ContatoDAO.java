@@ -6,7 +6,8 @@
 package crm.dao;
 
 import crm.db.Conexao;
-import crm.main.classes.Contato;
+import crm.model.Contato;
+import crm.model.Empresa;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -41,7 +42,6 @@ public class ContatoDAO extends AbstractDAO<Contato>{
                 contato.setId(id);
                 contato.setNome(rs.getString("nome"));
                 contato.setCargo(rs.getString("cargo"));
-                contato.setEmpresa(new EmpresaDAO().getOne(rs.getInt("empresa_id")));
             }
                 
         } catch (SQLException e) {
@@ -54,6 +54,11 @@ public class ContatoDAO extends AbstractDAO<Contato>{
 
     @Override
     public boolean save(Contato objeto) {
+        System.out.println("Usar a outra");
+        return false;
+    }
+    
+    public boolean save(Contato objeto, Empresa empresa) {
         Conexao c = new Conexao();
         Connection con = c.getConexao();
         
@@ -65,15 +70,15 @@ public class ContatoDAO extends AbstractDAO<Contato>{
         try {
             PreparedStatement ps = con.prepareStatement(sql, colunasGeradas);
             ps.setString(1, objeto.getNome());
-            ps.setString(1, objeto.getCargo());
-            ps.setInt(3, objeto.getEmpresa().getId());
+            ps.setString(2, objeto.getCargo());
+            ps.setInt(3, empresa.getId());
             ps.executeUpdate();
             
             ResultSet rs = ps.getGeneratedKeys();
             
             int id = 0;
             if (rs.next()) {
-                id = rs.getInt("id");
+                id = rs.getInt(1);
             }
             objeto.setId(id);
             
@@ -88,6 +93,11 @@ public class ContatoDAO extends AbstractDAO<Contato>{
 
     @Override
     public boolean update(Contato objeto) {
+        System.out.println("Colocar empresa nos parametros");
+        return false;
+    };
+    
+    public boolean update(Contato objeto, Empresa empresa) {
         Conexao c = new Conexao();
         Connection con = c.getConexao();
         
@@ -98,7 +108,7 @@ public class ContatoDAO extends AbstractDAO<Contato>{
             
             ps.setString(1, objeto.getNome());
             ps.setString(2, objeto.getCargo());
-            ps.setInt(3, objeto.getEmpresa().getId());
+            ps.setInt(3, empresa.getId());
             ps.setInt(4, objeto.getId());
             ps.executeUpdate();
             
@@ -151,7 +161,6 @@ public class ContatoDAO extends AbstractDAO<Contato>{
                 contato.setId(rs.getInt("id"));
                 contato.setNome(rs.getString("nome"));
                 contato.setCargo(rs.getString("cargo"));
-                contato.setEmpresa(new EmpresaDAO().getOne(rs.getInt("empresa_id")));
                 contatos.add(contato);
             }
                 
@@ -161,6 +170,34 @@ public class ContatoDAO extends AbstractDAO<Contato>{
         }
         
         return contatos;
+    }
+    
+    public Empresa getEmpresa(Contato contato) {
+        Empresa empresa = new Empresa();
+        
+        Conexao c = new Conexao();
+        Connection con = c.getConexao();
+        
+        String sql = "SELECT empresa_id FROM contato WHERE id = ?";
+        
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            
+            ps.setInt(1, contato.getId());
+            
+            ResultSet rs = ps.executeQuery();
+            
+            int empresaId = 0;
+            if (rs.next()) {
+                empresaId = rs.getInt("empresa_id");
+            }
+            empresa = new EmpresaDAO().getOne(empresaId);
+        } catch (SQLException e) {
+            System.out.println(e);
+            return null;
+        }
+        
+        return empresa;
     }
     
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package crm.main.classes;
+package crm.model;
 
 /**
  *
@@ -81,8 +81,7 @@ public class Setor {
 
     @Override
     public String toString() {
-        return "Código: " + codigo + "; "
-                + "Descrição: " + descricao + "; ";
+        return getDescricao();
     }
     
 }

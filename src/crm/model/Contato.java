@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package crm.main.classes;
+package crm.model;
 
 /**
  *
@@ -14,7 +14,6 @@ public class Contato {
     private int id;
     private String nome;
     private String cargo;
-    private Empresa empresa;
 
     /**
      *
@@ -26,12 +25,10 @@ public class Contato {
      *
      * @param nome
      * @param cargo
-     * @param empresa
      */
-    public Contato(String nome, String cargo, Empresa empresa) {
+    public Contato(String nome, String cargo) {
         this.nome = nome;
         this.cargo = cargo;
-        this.empresa = empresa;
     }
 
     /**
@@ -82,27 +79,10 @@ public class Contato {
         this.cargo = cargo;
     }
 
-    /**
-     *
-     * @return
-     */
-    public Empresa getEmpresa() {
-        return empresa;
-    }
-
-    /**
-     *
-     * @param empresa
-     */
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
-    }
-
     @Override
     public String toString() {
         return "Nome: " + nome + "; " 
-                + "Cargo: " + cargo + "; " 
-                + "Empresa: " + empresa.toString() + "; ";
+                + "Cargo: " + cargo + "; ";
     }
     
 }

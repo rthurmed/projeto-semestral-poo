@@ -6,7 +6,7 @@
 package crm.dao;
 
 import crm.db.Conexao;
-import crm.main.classes.Setor;
+import crm.model.Setor;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -37,12 +37,13 @@ public class SetorDAO extends AbstractDAO<Setor>{
             ResultSet rs = ps.executeQuery();
             
             if(rs.next()) {
-                setor.setId(rs.getInt("id"));
+                setor.setId(id);
                 setor.setCodigo(rs.getString("codigo"));
                 setor.setDescricao(rs.getString("descricao"));
             }
                 
         } catch (SQLException e) {
+            e.printStackTrace();
             System.out.println(e);
             return null;
         }
@@ -70,7 +71,7 @@ public class SetorDAO extends AbstractDAO<Setor>{
             
             int id = 0;
             if (rs.next()) {
-                id = rs.getInt("id");
+                id = rs.getInt(1);
             }
             objeto.setId(id);
             

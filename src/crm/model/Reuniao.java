@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package crm.main.classes;
+package crm.model;
 
 import java.util.Date;
 
@@ -11,48 +11,49 @@ import java.util.Date;
  *
  * @author Arthur
  */
-public class Email extends Interacao{
+public class Reuniao extends Interacao{
     
-    private String destinatario;
+    private int horario;
 
     /**
      *
      */
-    public Email() {
+    public Reuniao() {
     }
 
     /**
      *
-     * @param destinatario
+     * @param horario
      * @param dia
      * @param dataRetorno
      * @param efetiva
      * @param contato
      */
-    public Email(String destinatario, Date dia, Date dataRetorno, boolean efetiva, Contato contato) {
+    public Reuniao(int horario, Date dia, Date dataRetorno, boolean efetiva, Contato contato) {
         super(dia, dataRetorno, efetiva, contato);
-        this.destinatario = destinatario;
+        this.horario = horario;
     }
 
     /**
      *
      * @return
      */
-    public String getDestinatario() {
-        return destinatario;
+    public int getHorario() {
+        return horario;
     }
 
     /**
      *
-     * @param destinatario
+     * @param horario
      */
-    public void setDestinatario(String destinatario) {
-        this.destinatario = destinatario;
+    public void setHorario(int horario) {
+        this.horario = horario;
     }
 
     @Override
     public String toString() {
-        return super.toString() + "Destinatário: " + destinatario + "; ";
+        return super.toString()
+                + "Horário: " + horario + "; ";
     }
     
 }

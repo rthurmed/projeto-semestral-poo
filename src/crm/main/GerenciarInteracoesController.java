@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package crm.main.app;
+package crm.main;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -46,7 +46,7 @@ public class GerenciarInteracoesController implements Initializable {
 
     @FXML
     private void gotoAdicionarEmpresa(ActionEvent event) {
-        Crm.trocaTela("CadastrarEmpresa.fxml");
+        Crm.trocaTela("GerenciarEmpresa.fxml");
     }
     
 }
