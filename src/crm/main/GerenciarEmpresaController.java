@@ -37,9 +37,9 @@ import javafx.util.Callback;
  */
 public class GerenciarEmpresaController implements Initializable {
     
-    private EmpresaDAO empresaDAO = new EmpresaDAO();
+    private final EmpresaDAO empresaDAO = new EmpresaDAO();
     
-    private ContatoDAO contatoDAO = new ContatoDAO();
+    private final ContatoDAO contatoDAO = new ContatoDAO();
 
     private ObservableList listaEmpresas;
     
@@ -136,9 +136,12 @@ public class GerenciarEmpresaController implements Initializable {
     @FXML
     private void excluirContato(ActionEvent event) {
         contatoSelecionado = (Contato) contatosTable.getSelectionModel().getSelectedItem();
-        contatoDAO.delete(contatoSelecionado);
-        listaContatos.remove(contatoSelecionado);
-        status.setText("Removido contato " + contatoSelecionado.getNome() + ".");
+        if(contatoDAO.delete(contatoSelecionado)) {
+            listaContatos.remove(contatoSelecionado);
+            status.setText("Removido contato " + contatoSelecionado.getNome() + ".");
+        } else {
+            status.setText("Não foi possível remover contato " + contatoSelecionado.getNome() + ".");
+        }
     }
     
     @FXML
@@ -153,16 +156,15 @@ public class GerenciarEmpresaController implements Initializable {
     }
 
     @FXML
-    private void gotoGerenciarInteracoes(ActionEvent event) {
-        Crm.trocaTela("GerenciarInteracoes.fxml");
-    }
-
-    @FXML
     private void excluirEmpresa(ActionEvent event) {
         empresaSelecionada = (Empresa) empresasTable.getSelectionModel().getSelectedItem();
-        empresaDAO.delete(empresaSelecionada);
-        listaEmpresas.remove(empresaSelecionada);
-        status.setText("Removida empresa " + empresaSelecionada.getNomeFantasia() + ".");
+        if(empresaDAO.delete(empresaSelecionada)){
+            listaEmpresas.remove(empresaSelecionada);
+            status.setText("Removida empresa " + empresaSelecionada.getNomeFantasia() + "!");
+            empresaSelecionada = null;
+        } else {
+            status.setText("Não foi possível excluir " + empresaSelecionada.getNomeFantasia() + ".");
+        }
     }
 
     @FXML
@@ -175,7 +177,6 @@ public class GerenciarEmpresaController implements Initializable {
         setorCombo.getSelectionModel().select(empresaSelecionada.getSetor());
         listaContatos.clear();
         empresaDAO.getContatosFrom(empresaSelecionada);
-        System.out.println(empresaSelecionada.getContatos());
         for (Contato contato : empresaSelecionada.getContatos()) {
             listaContatos.add(contato);
         }
@@ -238,6 +239,16 @@ public class GerenciarEmpresaController implements Initializable {
         
         buttonAtualizar.setDisable(false);
         buttonCadastrar.setDisable(false);
+    }
+
+    @FXML
+    private void gotoGerenciarInteracoes(ActionEvent event) {
+        Crm.trocaTela("GerenciarInteracoes.fxml");
+    }
+    
+    @FXML
+    private void gotoGerenciarSetores(ActionEvent event) {
+        Crm.trocaTela("GerenciarSetores.fxml");
     }
     
 }

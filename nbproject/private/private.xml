@@ -5,7 +5,7 @@
             <url>src/crm/dao/SetorDAO.java</url>
             <bookmark id="1">
                 <name/>
-                <line>110</line>
+                <line>111</line>
                 <key/>
             </bookmark>
         </file>
@@ -19,6 +19,7 @@
             <file>file:/home/arthur/NetBeansProjects/projeto-semestral-poo/src/crm/main/GerenciarEmpresaController.java</file>
             <file>file:/home/arthur/NetBeansProjects/projeto-semestral-poo/src/crm/dao/EmpresaDAO.java</file>
             <file>file:/home/arthur/NetBeansProjects/projeto-semestral-poo/src/crm/main/Teste.java</file>
+            <file>file:/home/arthur/NetBeansProjects/projeto-semestral-poo/src/crm/dao/SetorDAO.java</file>
         </group>
     </open-files>
 </project-private>
