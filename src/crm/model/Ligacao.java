@@ -8,21 +8,30 @@ package crm.model;
 import java.util.Date;
 
 /**
- *
+ * Representação de uma ligação telefônica realizada com um cliente.
+ * 
  * @author Arthur
  */
 public class Ligacao extends Interacao{
     
+    /**
+     * Número telefônico telefonado
+     */
     private int numero;
+    
+    /**
+     * A ligação foi atendida?
+     */
     private boolean atendida;
 
     /**
-     * 
+     * Constrói um objeto de ligação
      */
     public Ligacao() {
     }
 
     /**
+     * Constrói um objeto de ligação a partir dos parâmetros
      * 
      * @param numero
      * @param atendida
@@ -38,15 +47,17 @@ public class Ligacao extends Interacao{
     }
 
     /**
-     *
-     * @return
+     * Retorna o numero de telefone ligado à ligação
+     * 
+     * @return numero
      */
     public int getNumero() {
         return numero;
     }
 
     /**
-     *
+     * Altera o o numero de telefone ligado à ligação
+     * 
      * @param numero
      */
     public void setNumero(int numero) {
@@ -54,21 +65,28 @@ public class Ligacao extends Interacao{
     }
 
     /**
-     *
-     * @return
+     * Retorna verdadeiro se a ligação foi atendida
+     * 
+     * @return atendida
      */
     public boolean isAtendida() {
         return atendida;
     }
 
     /**
-     *
+     * Altera o valor da propriedade atendida
+     * 
      * @param atendida
      */
     public void setAtendida(boolean atendida) {
         this.atendida = atendida;
     }
 
+    /**
+     * Produz um string com todos atributos
+     * 
+     * @return string
+     */
     @Override
     public String toString() {
         return super.toString() 

@@ -6,19 +6,22 @@
 package crm.model;
 
 /**
- *
+ * Representação de um usuário do sistema. Pode realizar todas atividades que um 
+ * vendedor, gerenciar vendedores e gerar um relatório de interações.
+ * 
  * @author Arthur
  */
 public class Gerente extends Vendedor{
 
     /**
-     *
+     * Constrói um objeto de gerente
      */
     public Gerente() {
     }
 
     /**
-     *
+     * Constrói um objeto de gerente a partir dos parâmetros
+     * 
      * @param nome
      * @param email
      */
@@ -27,13 +30,19 @@ public class Gerente extends Vendedor{
     }
     
     /**
-     *
-     * @return
+     * Gera um relatório baseado nas interações dos vendedores
+     * 
+     * @return string
      */
     public String gerarRelatorio() {
         return "relatorio";
     }
 
+    /**
+     * Produz um string com todos atributos
+     * 
+     * @return string
+     */
     @Override
     public String toString() {
         return super.toString();

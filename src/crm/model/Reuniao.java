@@ -8,21 +8,26 @@ package crm.model;
 import java.util.Date;
 
 /**
- *
+ * Representação de uma reunião realiza com um cliente
+ * 
  * @author Arthur
  */
 public class Reuniao extends Interacao{
     
+    /**
+     * Horário de início da reunião
+     */
     private int horario;
 
     /**
-     *
+     * Constrói um objeto de reunião
      */
     public Reuniao() {
     }
 
     /**
-     *
+     * Constrói um objeto de reunião a partir dos parâmetros
+     * 
      * @param horario
      * @param dia
      * @param dataRetorno
@@ -35,21 +40,28 @@ public class Reuniao extends Interacao{
     }
 
     /**
-     *
-     * @return
+     * Retorna o horário da reunião
+     * 
+     * @return horario
      */
     public int getHorario() {
         return horario;
     }
 
     /**
-     *
+     * Altera o horário da reunião
+     * 
      * @param horario
      */
     public void setHorario(int horario) {
         this.horario = horario;
     }
 
+    /**
+     * Produz um string com todos atributos
+     * 
+     * @return string
+     */
     @Override
     public String toString() {
         return super.toString()
