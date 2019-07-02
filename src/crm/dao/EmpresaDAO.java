@@ -16,11 +16,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
- *
+ * DAO para a classe Empresa
+ * 
  * @author arthur
  */
 public class EmpresaDAO extends AbstractDAO<Empresa>{
 
+    /**
+     * Obtém uma empresa a partir do ID
+     * 
+     * @param id
+     * @return objeto de empresa
+     */
     @Override
     public Empresa getOne(int id) {
         Empresa empresa = new Empresa();
@@ -53,6 +60,12 @@ public class EmpresaDAO extends AbstractDAO<Empresa>{
         return empresa;
     }
 
+    /**
+     * Insere no banco de dados a empresa recebida
+     * 
+     * @param objeto
+     * @return confirmação de que a operação foi realizada com sucesso
+     */
     @Override
     public boolean save(Empresa objeto) {
         Conexao c = new Conexao();
@@ -95,6 +108,12 @@ public class EmpresaDAO extends AbstractDAO<Empresa>{
         return true;
     }
 
+    /**
+     * Atualiza os valores de uma empresa no banco de dados
+     * 
+     * @param objeto
+     * @return confirmação de que a operação foi realizada com sucesso
+     */
     @Override
     public boolean update(Empresa objeto) {
         Conexao c = new Conexao();
@@ -132,6 +151,12 @@ public class EmpresaDAO extends AbstractDAO<Empresa>{
         return true;
     }
 
+    /**
+     * Remove uma empresa do banco de dados
+     * 
+     * @param objeto
+     * @return confirmação de que a operação foi realizada com sucesso
+     */
     @Override
     public boolean delete(Empresa objeto) {
         Conexao c = new Conexao();
@@ -154,6 +179,11 @@ public class EmpresaDAO extends AbstractDAO<Empresa>{
         return true;
     }
 
+    /**
+     * Obtém todas empresa do banco de dados
+     * 
+     * @return lista de todas empresas
+     */
     @Override
     public ArrayList<Empresa> getAll() {
         ArrayList<Empresa> empresas = new ArrayList();
@@ -186,6 +216,12 @@ public class EmpresaDAO extends AbstractDAO<Empresa>{
         return empresas;
     }
     
+    /**
+     * Obtém todos contatos de uma empresa
+     * 
+     * @param objeto
+     * @return lista de contatos
+     */
     public ArrayList<Contato> getContatosFrom(Empresa objeto) {
         ArrayList<Contato> contatos = new ArrayList();
         

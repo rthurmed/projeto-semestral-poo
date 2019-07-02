@@ -8,6 +8,7 @@ package crm.dao;
 import java.util.ArrayList;
 
 /**
+ * DAO abstrato
  *
  * @author arthur
  * @param <T>

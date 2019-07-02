@@ -15,7 +15,7 @@ import java.util.Date;
 public class Reuniao extends Interacao{
     
     /**
-     * Horário de início da reunião
+     * Horário de início da reunião 
      */
     private int horario;
 

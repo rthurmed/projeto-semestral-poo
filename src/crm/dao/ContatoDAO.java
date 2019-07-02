@@ -22,6 +22,12 @@ import java.util.ArrayList;
  */
 public class ContatoDAO extends AbstractDAO<Contato>{
 
+    /**
+     * Obtém um contato a partir do ID
+     * 
+     * @param id
+     * @return objeto de contato
+     */
     @Override
     public Contato getOne(int id) {
         Contato contato = new Contato();
@@ -52,12 +58,25 @@ public class ContatoDAO extends AbstractDAO<Contato>{
         return contato;
     }
 
+    /**
+     * Ignorar essa classe e usar a classe seguinte.
+     * 
+     * @param objeto
+     * @return 
+     */
     @Override
     public boolean save(Contato objeto) {
         System.out.println("Usar a outra");
         return false;
     }
     
+    /**
+     * Insere no banco de dados o contato recebido
+     * 
+     * @param objeto
+     * @param empresa 
+     * @return confirmação de que a operação foi realizada com sucesso
+     */
     public boolean save(Contato objeto, Empresa empresa) {
         Conexao c = new Conexao();
         Connection con = c.getConexao();
@@ -91,12 +110,24 @@ public class ContatoDAO extends AbstractDAO<Contato>{
         return true;
     }
 
+    /**
+     * Ignorar essa classe e usar a classe seguinte.
+     * 
+     * @param objeto
+     * @return 
+     */
     @Override
     public boolean update(Contato objeto) {
         System.out.println("Colocar empresa nos parametros");
         return false;
     };
-    
+
+    /**
+     * Atualiza os valores de um contato no banco de dados
+     * 
+     * @param objeto
+     * @return confirmação de que a operação foi realizada com sucesso
+     */
     public boolean update(Contato objeto, Empresa empresa) {
         Conexao c = new Conexao();
         Connection con = c.getConexao();
@@ -121,6 +152,12 @@ public class ContatoDAO extends AbstractDAO<Contato>{
         return true;
     }
     
+    /**
+     * Remove um contato do banco de dados
+     * 
+     * @param objeto
+     * @return confirmação de que a operação foi realizada com sucesso
+     */
     @Override
     public boolean delete(Contato objeto) {
         Conexao c = new Conexao();
@@ -143,6 +180,11 @@ public class ContatoDAO extends AbstractDAO<Contato>{
         return true;
     }
 
+    /**
+     * Obtém todos contatos do banco de dados
+     * 
+     * @return lista com todos contatos
+     */
     @Override
     public ArrayList<Contato> getAll() {
         ArrayList<Contato> contatos = new ArrayList();
@@ -172,6 +214,13 @@ public class ContatoDAO extends AbstractDAO<Contato>{
         return contatos;
     }
     
+    
+    /**
+     * Obtém a empresa associada a um contato
+     * 
+     * @param contato
+     * @return objeto de empresa
+     */
     public Empresa getEmpresa(Contato contato) {
         Empresa empresa = new Empresa();
         

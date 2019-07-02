@@ -15,11 +15,18 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 /**
+ * DAO para a classe Setor
  *
  * @author arthur
  */
 public class SetorDAO extends AbstractDAO<Setor>{
 
+    /**
+     * Obtém um setor a partir do ID
+     * 
+     * @param id
+     * @return objeto de setor
+     */
     @Override
     public Setor getOne(int id) {
         Setor setor = new Setor();
@@ -51,6 +58,12 @@ public class SetorDAO extends AbstractDAO<Setor>{
         return setor;
     }
 
+    /**
+     * Insere no banco de dados o setor recebido
+     * 
+     * @param objeto
+     * @return confirmação de que a operação foi realizada com sucesso
+     */
     @Override
     public boolean save(Setor objeto) {
         Conexao c = new Conexao();
@@ -84,6 +97,12 @@ public class SetorDAO extends AbstractDAO<Setor>{
         return true;
     }
 
+    /**
+     * Atualiza os valores de um setor no banco de dados
+     * 
+     * @param objeto
+     * @return confirmação de que a operação foi realizada com sucesso
+     */
     @Override
     public boolean update(Setor objeto) {
         Conexao c = new Conexao();
@@ -108,6 +127,12 @@ public class SetorDAO extends AbstractDAO<Setor>{
         return true;
     }
     
+    /**
+     * Remove um setor do banco de dados
+     * 
+     * @param objeto
+     * @return confirmação de que a operação foi realizada com sucesso
+     */
     @Override
     public boolean delete(Setor objeto) {
         Conexao c = new Conexao();
@@ -130,6 +155,11 @@ public class SetorDAO extends AbstractDAO<Setor>{
         return true;
     }
 
+    /**
+     * Obtém todos setores do banco de dados
+     * 
+     * @return lista de todos setores
+     */
     @Override
     public ArrayList<Setor> getAll() {
         ArrayList<Setor> setores = new ArrayList();
