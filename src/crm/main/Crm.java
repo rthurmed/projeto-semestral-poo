@@ -15,13 +15,19 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- *
+ * Aplicação JavaFX
+ * 
  * @author Arthur
  */
 public class Crm extends Application {
     
     private static Stage stage;
     
+    /**
+     * Substitue a tela atual pela tela indicada pelo caminho
+     * 
+     * @param caminho 
+     */
     public static void trocaTela(String caminho){
         Parent root = null;
         
@@ -38,6 +44,12 @@ public class Crm extends Application {
         stage.show();
     }
     
+    /**
+     * Inicia a aplicação JavaFX na tela Home.fxml
+     * 
+     * @param stage
+     * @throws Exception 
+     */
     @Override
     public void start(Stage stage) throws Exception {
         Crm.stage = stage;

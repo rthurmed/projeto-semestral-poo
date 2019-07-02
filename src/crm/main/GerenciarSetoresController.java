@@ -21,32 +21,72 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
- * FXML Controller class
+ * FXML Controller da tela de gerenciar setores
  *
  * @author arthur
  */
 public class GerenciarSetoresController implements Initializable {
 
+    /**
+     * DAO de Setor
+     */
     private final SetorDAO setorDao = new SetorDAO();
     
+    /**
+     * Lista de setores
+     */
     private ObservableList setores;
     
+    /**
+     * Setor selecionado na lista
+     */
     private Setor setorSelecionado;
     
+    /**
+     * Tabela de setores
+     */
     @FXML
     private TableView<?> setoresTable;
+    
+    /**
+     * Coluna de codigo da tabela de setores
+     */
     @FXML
     private TableColumn<?, ?> setorTableCodigo;
+    
+    /**
+     * Coluna de descrição da tabela de setores
+     */
     @FXML
     private TableColumn<?, ?> setorTableDescricao;
+    
+    /**
+     * Campo de código do setor
+     */
     @FXML
     private TextField codigoField;
+    
+    /**
+     * Campo de descrição do setor
+     */
     @FXML
     private TextField descricaoField;
+    
+    /**
+     * Output de informações
+     */
     @FXML
     private Label status;
+    
+    /**
+     * Botão de cadastrar setor
+     */
     @FXML
     private Button buttonCadastrar;
+    
+    /**
+     * Botão de atualizar setor
+     */
     @FXML
     private Button buttonAtualizar;
 
@@ -63,6 +103,11 @@ public class GerenciarSetoresController implements Initializable {
         }
     }    
 
+    /**
+     * Exclui o setor selecionado
+     * 
+     * @param event 
+     */
     @FXML
     private void excluirSetor(ActionEvent event) {
         setorSelecionado = (Setor) setoresTable.getSelectionModel().getSelectedItem();
@@ -75,6 +120,11 @@ public class GerenciarSetoresController implements Initializable {
         }
     }
 
+    /**
+     * Carrega no formulário os valores do setor selecionado
+     * 
+     * @param event 
+     */
     @FXML
     private void carregarSetor(ActionEvent event) {
         setorSelecionado = (Setor) setoresTable.getSelectionModel().getSelectedItem();
@@ -83,6 +133,11 @@ public class GerenciarSetoresController implements Initializable {
         status.setText("Setor " + setorSelecionado + " carregado com sucesso!");
     }
 
+    /**
+     * Cadastra um novo setor baseado nos valores do formulário
+     * 
+     * @param event 
+     */
     @FXML
     private void cadastrarSetor(ActionEvent event) {
         buttonAtualizar.setDisable(true);
@@ -102,6 +157,11 @@ public class GerenciarSetoresController implements Initializable {
         buttonCadastrar.setDisable(false);        
     }
 
+    /**
+     * Atualiza os valores do setor carregado
+     * 
+     * @param event 
+     */
     @FXML
     private void atualizarSetor(ActionEvent event) {
         if(setorSelecionado == null) {
@@ -123,6 +183,11 @@ public class GerenciarSetoresController implements Initializable {
         buttonCadastrar.setDisable(false);
     }
     
+    /**
+     * Envia para a tela de gerenciar empresas
+     * 
+     * @param event 
+     */
     @FXML
     private void gotoGerenciarEmpresas(ActionEvent event) {
         Crm.trocaTela("GerenciarEmpresa.fxml");

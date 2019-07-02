@@ -16,25 +16,49 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 /**
- *
+ * FXML Controller da tela inicial
+ * 
  * @author Arthur
  */
 public class HomeController implements Initializable {
     
+    /**
+     * Titulo da tela
+     */
     @FXML
     private Label label;
+    
+    /**
+     * Botão de login
+     */
     @FXML
     private Button button;
+    
+    /**
+     * Campo do e-mail
+     */
     @FXML
     private TextField emailField;
+    
+    /**
+     * Campo de senha
+     */
     @FXML
     private PasswordField passField;
     
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
 
+    /**
+     * Loga no sistema e envia para a tela de gerenciar interações
+     * 
+     * @param event 
+     */
     @FXML
     private void logar(ActionEvent event) {
         Crm.trocaTela("GerenciarInteracoes.fxml");

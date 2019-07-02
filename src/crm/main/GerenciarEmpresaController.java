@@ -12,10 +12,7 @@ import crm.model.Contato;
 import crm.model.Empresa;
 import crm.model.Setor;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,67 +21,157 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.util.Callback;
 
 /**
- * FXML Controller class
+ * FXML Controller da tela de gerenciar empresa
  *
  * @author arthur
  */
 public class GerenciarEmpresaController implements Initializable {
     
+    /**
+     * Dao de empresa
+     */
     private final EmpresaDAO empresaDAO = new EmpresaDAO();
     
+    /**
+     * DAO de contato
+     */
     private final ContatoDAO contatoDAO = new ContatoDAO();
 
+    /**
+     * Lista de empresas
+     */
     private ObservableList listaEmpresas;
     
+    /**
+     * Lista de contatos
+     */
     private ObservableList listaContatos;
     
+    /**
+     * Lista de setores para o combobox
+     */
     private ObservableList setoresOpcoes;
     
+    /**
+     * Empresa selecionada na tabela
+     */
     private Empresa empresaSelecionada;
     
+    /**
+     * Contato selecionado na tabela
+     */
     private Contato contatoSelecionado;
     
+    /**
+     * Campo da razão social da empresa
+     */
     @FXML
     private TextField razaoSocialField;
+    
+    /**
+     * Campo do nome fantasia da empresa
+     */
     @FXML
     private TextField nomeFantasiaField;
+    
+    /**
+     * Campo da cidade da empresa
+     */
     @FXML
     private TextField cidadeField;
+    
+    /**
+     * Campo do site da empresa
+     */
     @FXML
     private TextField siteField;
+    
+    /**
+     * Combo box do setor da empresa
+     */
     @FXML
     private ComboBox<Setor> setorCombo;
+    
+    /**
+     * Campo de nome do contato
+     */
     @FXML
     private TextField contatoNomeField;
+    
+    /**
+     * Campo de cargo do contato
+     */
     @FXML
     private TextField contatoCargoField;
+    
+    /**
+     * Botão de adicionar contato
+     */
     @FXML
     private Button buttonAddContato;
+    
+    /**
+     * Tabela de contatos
+     */
     @FXML
     private TableView<?> contatosTable;
+    
+    /**
+     * Botão de cadastrar empresa
+     */
     @FXML
     private Button buttonCadastrar;
+    
+    /**
+     * Coluna de nome da tabela de contatos
+     */
     @FXML
     private TableColumn<?, ?> contatosTableNome;
+    
+    /**
+     * Coluna de cargo da tabela de contatos
+     */
     @FXML
     private TableColumn<?, ?> contatosTableCargo;
+    
+    /**
+     * Output de informações
+     */
     @FXML
     private Label status;
+    
+    /**
+     * Tabela de empresas
+     */
     @FXML
     private TableView<?> empresasTable;
+    
+    /**
+     * Coluna de nome da tabela de empresas
+     */
     @FXML
     private TableColumn<?, ?> empresasTableNome;
+    
+    /**
+     * Coluna de cidade da tabela de empresas
+     */
     @FXML
     private TableColumn<?, ?> empresasTableCidade;
+    
+    /**
+     * Coluna de site na tabela de empresas
+     */
     @FXML
     private TableColumn<?, ?> empresasTableSite;
+    
+    /**
+     * Botão de atualizar empresa
+     */
     @FXML
     private Button buttonAtualizar;
 
@@ -115,6 +202,11 @@ public class GerenciarEmpresaController implements Initializable {
         }
     }    
 
+    /**
+     * Adiciona um novo contato a lista de contatos da empresa
+     * 
+     * @param event 
+     */
     @FXML
     private void addContato(ActionEvent event) {
         Contato contato = new Contato();
@@ -124,7 +216,11 @@ public class GerenciarEmpresaController implements Initializable {
         status.setText("Adicionado contato " + contato.getNome() + ".");
     }
 
-
+    /**
+     * Carrega no formulário os valores do contato selecionado
+     * 
+     * @param event 
+     */
     @FXML
     private void carregarContato(ActionEvent event) {
         contatoSelecionado = (Contato) contatosTable.getSelectionModel().getSelectedItem();
@@ -133,6 +229,11 @@ public class GerenciarEmpresaController implements Initializable {
         status.setText("Carregado contato " + contatoSelecionado.getNome() + ".");
     }
 
+    /**
+     * Exclui o contato selecionado
+     * 
+     * @param event 
+     */
     @FXML
     private void excluirContato(ActionEvent event) {
         contatoSelecionado = (Contato) contatosTable.getSelectionModel().getSelectedItem();
@@ -144,6 +245,11 @@ public class GerenciarEmpresaController implements Initializable {
         }
     }
     
+    /**
+     * Atualiza os valores do contato carregado
+     * 
+     * @param event 
+     */
     @FXML
     private void atualizarContato(ActionEvent event) {
         contatoSelecionado = (Contato) contatosTable.getSelectionModel().getSelectedItem();        
@@ -155,6 +261,11 @@ public class GerenciarEmpresaController implements Initializable {
         status.setText("Atualizado contato " + contato.getNome() + ".");
     }
 
+    /**
+     * Exclui a empresa selecionada
+     * 
+     * @param event 
+     */
     @FXML
     private void excluirEmpresa(ActionEvent event) {
         empresaSelecionada = (Empresa) empresasTable.getSelectionModel().getSelectedItem();
@@ -167,6 +278,11 @@ public class GerenciarEmpresaController implements Initializable {
         }
     }
 
+    /**
+     * Carrega no formulário os valores da empresa selecionada
+     * 
+     * @param event 
+     */
     @FXML
     private void carregarEmpresa(ActionEvent event) {
         empresaSelecionada = (Empresa) empresasTable.getSelectionModel().getSelectedItem();
@@ -183,6 +299,11 @@ public class GerenciarEmpresaController implements Initializable {
         status.setText("Carregada empresa " + empresaSelecionada.getNomeFantasia() + "!");
     }
 
+    /**
+     * Cadastra uma nova empresa baseada nos valores do formulário
+     * 
+     * @param event 
+     */
     @FXML
     private void cadastrarNovaEmpresa(ActionEvent event) {
         buttonAtualizar.setDisable(true);
@@ -211,6 +332,11 @@ public class GerenciarEmpresaController implements Initializable {
         buttonCadastrar.setDisable(false);
     }
 
+    /**
+     * Atualiza os valores da empresa carregada
+     * 
+     * @param event 
+     */
     @FXML
     private void atualizarEmpresa(ActionEvent event) {
         if (empresaSelecionada == null) {
@@ -241,11 +367,21 @@ public class GerenciarEmpresaController implements Initializable {
         buttonCadastrar.setDisable(false);
     }
 
+    /**
+     * Envia para a tela de gerenciar interações
+     * 
+     * @param event 
+     */
     @FXML
     private void gotoGerenciarInteracoes(ActionEvent event) {
         Crm.trocaTela("GerenciarInteracoes.fxml");
     }
     
+    /**
+     * Envia para a tela de gerenciar setores
+     * 
+     * @param event 
+     */
     @FXML
     private void gotoGerenciarSetores(ActionEvent event) {
         Crm.trocaTela("GerenciarSetores.fxml");

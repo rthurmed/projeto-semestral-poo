@@ -16,7 +16,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="ligacoesTable" prefHeight="487.0" prefWidth="455.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView prefHeight="487.0" prefWidth="455.0" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
                             <TableColumn prefWidth="75.0" text="Data" />
                             <TableColumn prefWidth="75.0" text="Contato" />
@@ -32,7 +32,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TableView fx:id="emailsTable" prefHeight="487.0" prefWidth="455.0">
+                        <TableView prefHeight="487.0" prefWidth="455.0">
                           <columns>
                               <TableColumn prefWidth="75.0" text="Data" />
                               <TableColumn prefWidth="75.0" text="Contato" />
@@ -48,7 +48,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="103.0" prefWidth="455.0">
                      <children>
-                        <TableView fx:id="reunioesTable" prefHeight="487.0" prefWidth="455.0">
+                        <TableView prefHeight="487.0" prefWidth="455.0">
                           <columns>
                               <TableColumn prefWidth="75.0" text="Data" />
                               <TableColumn prefWidth="75.0" text="Contato" />
@@ -62,8 +62,8 @@
             </Tab>
         </tabs>
       </TabPane>
-      <Button layoutX="14.0" layoutY="547.0" mnemonicParsing="false" onAction="#gotoEditarInteracao" text="Editar interacao" />
-      <TableView fx:id="contatosTable" layoutX="488.0" layoutY="48.0" prefHeight="487.0" prefWidth="433.0">
+      <Button layoutX="14.0" layoutY="547.0" mnemonicParsing="false" text="Editar interacao" />
+      <TableView layoutX="488.0" layoutY="48.0" prefHeight="487.0" prefWidth="433.0">
         <columns>
           <TableColumn prefWidth="75.0" text="Nome" />
           <TableColumn prefWidth="75.0" text="Cargo" />
@@ -75,6 +75,6 @@
       <Button layoutX="675.0" layoutY="547.0" mnemonicParsing="false" text="E-mail" />
       <Button layoutX="592.0" layoutY="547.0" mnemonicParsing="false" text="Ligaçao" />
       <Button layoutX="747.0" layoutY="547.0" mnemonicParsing="false" text="Reuniao" />
-      <Button layoutX="773.0" layoutY="14.0" mnemonicParsing="false" onAction="#gotoAdicionarEmpresa" text="Gerenciar Empresa" />
+      <Button layoutX="773.0" layoutY="14.0" mnemonicParsing="false" onAction="#gotoGerenciarEmpresa" text="Gerenciar Empresas" />
    </children>
 </AnchorPane>

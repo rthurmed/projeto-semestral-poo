@@ -13,20 +13,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
 
 /**
- * FXML Controller class
+ * [Não implementada]
+ * FXML Controller da tela gerenciar interações
  *
  * @author arthur
  */
 public class GerenciarInteracoesController implements Initializable {
 
-    @FXML
-    private TableView<?> ligacoesTable;
-    @FXML
-    private TableView<?> emailsTable;
-    @FXML
-    private TableView<?> reunioesTable;
-    @FXML
-    private TableView<?> contatosTable;
 
     /**
      * Initializes the controller class.
@@ -36,16 +29,13 @@ public class GerenciarInteracoesController implements Initializable {
         // TODO
     }    
 
+    /**
+     * Envia para a tela de gerenciar empresa
+     * 
+     * @param event 
+     */
     @FXML
-    private void gotoEditarInteracao(ActionEvent event) {
-    }
-
-    @FXML
-    private void gotoEditarContato(ActionEvent event) {
-    }
-
-    @FXML
-    private void gotoAdicionarEmpresa(ActionEvent event) {
+    private void gotoGerenciarEmpresa(ActionEvent event) {
         Crm.trocaTela("GerenciarEmpresa.fxml");
     }
     
