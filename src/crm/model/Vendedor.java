@@ -39,9 +39,19 @@ public class Vendedor {
     private String email;
     
     /**
-     * Lista de todas interações realizadas
+     * Lista de todas ligações realizadas
      */
-    private ArrayList<Interacao> interacoes = new ArrayList<>();
+    private ArrayList<Ligacao> ligacoes = new ArrayList<>();
+    
+    /**
+     * Lista de todos emails enviados
+     */
+    private ArrayList<Email> emails = new ArrayList<>();
+    
+    /**
+     * Lista de todas reuniões realizadas
+     */
+    private ArrayList<Reuniao> reunioes = new ArrayList<>();
 
     /**
      * Constrói um objeto de vendedor
@@ -115,30 +125,84 @@ public class Vendedor {
     }
 
     /**
-     * Retorno uma lista com todas interações do vendedor
+     * Retorno uma lista com todas ligações do vendedor
      * 
      * @return interacoes
      */
-    public ArrayList<Interacao> getInteracoes() {
-        return interacoes;
+    public ArrayList<Ligacao> getLigacoes() {
+        return ligacoes;
     }
 
     /**
-     * Altera toda lista de interações
+     * Altera toda lista de ligações
      * 
-     * @param interacoes
+     * @param ligacoes
      */
-    public void setInteracoes(ArrayList<Interacao> interacoes) {
-        this.interacoes = interacoes;
+    public void setLigacoes(ArrayList<Ligacao> ligacoes) {
+        this.ligacoes = ligacoes;
     }
     
     /**
-     * Adiciona uma interação à lista de interações
+     * Adiciona uma ligação à lista de ligações
      * 
-     * @param interacao 
+     * @param ligacao 
      */
-    public void addInteracao(Interacao interacao) {
-        this.interacoes.add(interacao);
+    public void addLigacao(Ligacao ligacao) {
+        this.ligacoes.add(ligacao);
+    }
+
+    /**
+     * Retorno uma lista com todos emails do vendedor
+     * 
+     * @return emails
+     */
+    public ArrayList<Email> getEmails() {
+        return emails;
+    }
+
+    /**
+     * Altera toda lista de emails
+     * 
+     * @param emails
+     */
+    public void setEmails(ArrayList<Email> emails) {
+        this.emails = emails;
+    }
+    
+    /**
+     * Adiciona um email à lista de emails
+     *
+     * @param email
+     */
+    public void addEmail(Email email) {
+        this.emails.add(email);
+    }
+
+    /**
+     * Retorna uma lista com todas reuniões do vendedor
+     *
+     * @return reunioes
+     */
+    public ArrayList<Reuniao> getReunioes() {
+        return reunioes;
+    }
+
+    /**
+     * Altera toda lista de reuniões
+     *
+     * @param reunioes
+     */
+    public void setReunioes(ArrayList<Reuniao> reunioes) {
+        this.reunioes = reunioes;
+    }
+    
+    /**
+     * Adiciona uma reunião à lista de reuniões
+     *
+     * @param reuniao
+     */
+    public void addReuniao(Reuniao reuniao) {
+        this.reunioes.add(reuniao);
     }
 
     /**
@@ -148,13 +212,24 @@ public class Vendedor {
      */
     @Override
     public String toString() {
-        String interacoesString = "";
-        for (Interacao interacao : interacoes) {
-            interacoesString += interacao.toString();
+        String ligacoesString = "";
+        String emailsString = "";
+        String reunioesString = "";
+        for (Ligacao ligacao : ligacoes) {
+            ligacoesString += ligacao.toString();
+        }
+        for (Email email1 : emails) {
+            emailsString += email1.toString();
+        }
+        for (Reuniao reuniao : reunioes) {
+            reunioesString += reuniao.toString();
         }
         return "Nome: " + nome + "; " 
                 + "E-mail: " + email + "; " 
-                + "Interações: " + interacoesString + "; ";
+                + "Interações: " 
+                + "Ligações: " + ligacoesString + ", " 
+                + "Email: " + emailsString + ", "
+                + "Reuniões: " + reunioesString + ";";
     }
     
 }
