@@ -359,6 +359,8 @@ public class GerenciarEmpresaController implements Initializable {
         
         if(empresaDAO.update(empresaSelecionada)) {            
             status.setText("Atualizada empresa " + empresaSelecionada.getNomeFantasia() + "!");
+            listaEmpresas.remove(empresaSelecionada);
+            listaEmpresas.add(empresaSelecionada);
         }else{
             status.setText("Não foi possível atualizar a empresa.");
         }

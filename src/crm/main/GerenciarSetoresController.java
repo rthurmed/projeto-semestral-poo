@@ -175,6 +175,8 @@ public class GerenciarSetoresController implements Initializable {
         setorSelecionado.setDescricao(descricaoField.getText());
         if(setorDao.update(setorSelecionado)){
             status.setText("Setor " + setorSelecionado.getDescricao() + " atualizado com sucesso!");
+            setores.remove(setorSelecionado);
+            setores.add(setorSelecionado);
         } else {
             status.setText("Não foi possível atualizar o setor " + setorSelecionado.getDescricao() + ".");
         }
