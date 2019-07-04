@@ -126,6 +126,7 @@ public class ContatoDAO extends AbstractDAO<Contato>{
      * Atualiza os valores de um contato no banco de dados
      * 
      * @param objeto
+     * @param empresa
      * @return confirmação de que a operação foi realizada com sucesso
      */
     public boolean update(Contato objeto, Empresa empresa) {

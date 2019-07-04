@@ -49,7 +49,7 @@ CREATE TABLE empresa (
     setor_id NUMBER
 )
 
-ALTER TABLE empresa ADD CONSTRAINT fkempresa_setor FOREIGN KEY(setor_id) REFERENCES setor(id)
+ALTER TABLE empresa ADD CONSTRAINT fkempresa_setor FOREIGN KEY(setor_id) REFERENCES setor(id) ON DELETE SET NULL
 
 -- Serviço
 -- * descricao
@@ -66,7 +66,7 @@ CREATE TABLE servico (
     empresa_id NUMBER
 )
 
-ALTER TABLE servico ADD CONSTRAINT fkservico_empresa FOREIGN KEY(empresa_id) REFERENCES empresa(id)
+ALTER TABLE servico ADD CONSTRAINT fkservico_empresa FOREIGN KEY(empresa_id) REFERENCES empresa(id) ON DELETE CASCADE
 
 -- CONTATO
 -- * nome
@@ -82,7 +82,7 @@ CREATE TABLE contato (
     empresa_id NUMBER
 )
 
-ALTER TABLE contato ADD CONSTRAINT fkcontato_empresa FOREIGN KEY(empresa_id) REFERENCES empresa(id)
+ALTER TABLE contato ADD CONSTRAINT fkcontato_empresa FOREIGN KEY(empresa_id) REFERENCES empresa(id) ON DELETE CASCADE
 
 -- LIGACAO
 -- * dia
@@ -105,8 +105,8 @@ CREATE TABLE ligacao (
     atendida NUMBER
 )
 
-ALTER TABLE ligacao ADD CONSTRAINT fkligacao_contato FOREIGN KEY(contato_id) REFERENCES contato(id)
-ALTER TABLE ligacao ADD CONSTRAINT fkligacao_vendedor FOREIGN KEY(vendedor_id) REFERENCES vendedor(id)
+ALTER TABLE ligacao ADD CONSTRAINT fkligacao_contato FOREIGN KEY(contato_id) REFERENCES contato(id) ON DELETE SET NULL
+ALTER TABLE ligacao ADD CONSTRAINT fkligacao_vendedor FOREIGN KEY(vendedor_id) REFERENCES vendedor(id) ON DELETE CASCADE
 
 -- EMAIL
 -- * dia
@@ -127,8 +127,8 @@ CREATE TABLE email (
     destinatario VARCHAR(255)
 )
 
-ALTER TABLE email ADD CONSTRAINT fkemail_contato FOREIGN KEY(contato_id) REFERENCES contato(id)
-ALTER TABLE email ADD CONSTRAINT fkemail_vendedor FOREIGN KEY(vendedor_id) REFERENCES vendedor(id)
+ALTER TABLE email ADD CONSTRAINT fkemail_contato FOREIGN KEY(contato_id) REFERENCES contato(id) ON DELETE SET NULL
+ALTER TABLE email ADD CONSTRAINT fkemail_vendedor FOREIGN KEY(vendedor_id) REFERENCES vendedor(id) ON DELETE CASCADE
 
 -- REUNIAO
 -- * dia
@@ -149,5 +149,5 @@ CREATE TABLE reuniao (
     horario NUMBER
 )
 
-ALTER TABLE reuniao ADD CONSTRAINT fkreuniao_contato FOREIGN KEY(contato_id) REFERENCES contato(id)
-ALTER TABLE reuniao ADD CONSTRAINT fkreuniao_vendedor FOREIGN KEY(vendedor_id) REFERENCES vendedor(id)
+ALTER TABLE reuniao ADD CONSTRAINT fkreuniao_contato FOREIGN KEY(contato_id) REFERENCES contato(id) ON DELETE SET NULL
+ALTER TABLE reuniao ADD CONSTRAINT fkreuniao_vendedor FOREIGN KEY(vendedor_id) REFERENCES vendedor(id) ON DELETE CASCADE
